@@ -14,3 +14,13 @@ services:
       - '4306:3306'
     volumes:
       - ./mysql:/var/lib/mysql
+  php:
+    container_name: php
+    build:
+      context: ./php
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./app:/var/www/sandbox
+    depends_on:
+      - database
