@@ -24,3 +24,14 @@ services:
       - ./app:/var/www/sandbox
     depends_on:
       - database
+  nginx:
+    container_name: nginx
+    image: nginx:stable-alpine
+    ports:
+      - '8080:80'
+    volumes:
+      - ./app:/var/www/sandbox
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - database
