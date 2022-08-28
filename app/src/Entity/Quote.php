@@ -23,6 +23,12 @@ class Quote
     #[ORM\Column(length: 5)]
     private ?string $year = null;
 
+    public function __construct($quote, $historian, $year) {
+        $this->quote = $quote;
+        $this->historian = $historian;
+        $this->year = $year;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
